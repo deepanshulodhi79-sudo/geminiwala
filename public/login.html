@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MailSender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 400px;">
+        <div class="header">
+            <div class="title">🔑 System Login</div>
+        </div>
+        <form id="loginForm">
+            <div class="form-group" style="margin-top: 15px;">
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter dashboard password" required>
+            </div>
+            <button type="submit">Dashboard Open Karein 🚀</button>
+        </form>
+        <div id="loginError" style="margin-top:15px; color:#f87171; display:none; text-align:center;">Galat Password!</div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pass = document.getElementById('loginPassword').value;
+            // Aap apna koi bhi simple password yahan set kar sakte hain (Abhi ke liye admin123 hai)
+            if(pass === 'admin123') {
+                sessionStorage.setItem('allowed', 'true');
+                window.location.href = '/dashboard';
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
