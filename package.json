@@ -1,5 +1,5 @@
 {
-  "name": "gmail-sender",
+  "name": "bulk-mail-sender-ui",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
