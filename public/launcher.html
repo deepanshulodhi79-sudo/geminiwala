@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Sender - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        // Security check: Agar login nahi kiya toh wapas bhej do
+        if(sessionStorage.getItem('allowed') !== 'true') {
+            window.location.href = '/';
+        }
+    </script>
+
+    <div class="container">
+        <div class="header">
+            <div class="title">📩 MailSender</div>
+            <div class="status">● Server Online ✓</div>
+        </div>
+
+        <form id="mailForm">
+            <div class="section-title">👤 AAPKI DETAILS</div>
+            <div class="row">
+                <div class="form-group">
+                    <label>Aapka Naam (optional)</label>
+                    <input type="text" id="fromName" placeholder="Rahul Sharma">
+                </div>
+                <div class="form-group">
+                    <label>Aapka Email</label>
+                    <input type="email" id="senderEmail" placeholder="aap@gmail.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>App Password / SMTP Password</label>
+                <input type="password" id="appPassword" placeholder="Gmail App Password yahan daalo" required>
+                <div class="hint">Gmail ke liye: Settings → 2FA → App Passwords se banao</div>
+            </div>
+
+            <div class="section-title">📁 BULK EMAIL DETAILS</div>
+            <div class="form-group">
+                <label>Recipients (ek line mein ek email, ya comma se alag karo)</label>
+                <textarea id="recipients" rows="4" placeholder="email1@gmail.com&#10;email2@yahoo.com" required></textarea>
+            </div>
+
+            <div class="form-group" style="margin-top: 15px;">
+                <label>Subject</label>
+                <input type="text" id="subject" placeholder="Email ka topic" required>
+            </div>
+
+            <div class="form-group" style="margin-top: 15px;">
+                <label>Message</label>
+                <textarea id="message" rows="5" placeholder="Apna message yahan likhein..." required></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Bulk Email Bhejo 🚀</button>
+        </form>
+
+        <div id="responseMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
